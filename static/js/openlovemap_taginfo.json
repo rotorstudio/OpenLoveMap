@@ -1,45 +1,33 @@
 {
     "data_format": 1,
-    "data_url": "http://openlovemap.de/openlovemap_taginfo.json",
+    "data_url": "http://openveganfoodmap.rotorstudio.de/openveganfoodmap_taginfo.json",
     "project": {
-        "name": "OpenLoveMap",
-        "description": "The love in the palm of your hand.",
-        "project_url": "http://openlovemap.de",
-        "contact_name": "Thomas Skowron",
-        "contact_email": "th@skowron.biz"
+        "name": "OpenVeganFoodMap",
+        "description": "Find Vegan Food.",
+        "project_url": "http://openveganfoodmap.rotorstudio.de",
+        "contact_name": "Robert T.",
+        "contact_email": "@"
     },
     "tags": [
         {
-            "key": "vending",
-            "value": "condoms"
+            "key": "amenity",
+            "value": "pub "
         },
         {
             "key": "amenity",
-            "value": "brothel"
+            "value": "cafe"
         },
         {
             "key": "amenity",
-            "value": "stripclub"
-        },
-        {
-            "key": "shop",
-            "value": "erotic"
-        },
-        {
-            "key": "shop",
-            "value": "adult"
-        },
-        {
-            "key": "office",
-            "value": "register"
+            "value": "fast_food"
         },
         {
             "key": "amenity",
-            "value": "register_office"
+            "value": "restaurant"
         },
         {
             "key": "shop",
-            "value": "sex"
+            "value": "supermarket"
         }
     ]
 }

@@ -1,6 +1,6 @@
 'use strict';
 var map, saved_lat, saved_lon, bbox;
-var kondom_icon, strip_icon, shop_icon, brothel_icon, register_icon;
+var cafe_icon, fastfood_icon, restaurant_icon, supermarket_icon, register_icon;
 var poi_markers = new Array();
 
 function jumpto(lat, lon) {
@@ -62,21 +62,19 @@ function element_to_map(data) {
 			el.lon = el.center.lon;
 		}
 
+        console.log(el);
 		if(el.tags != undefined && el.tags.entrance != "yes") {
 			var mrk, popup_content;
 
-			if(el.tags.vending != undefined) {
-				mrk = L.marker([el.lat, el.lon], {icon: kondom_icon});
-				mrk.bindPopup("Kondomautomat");
-			} else if(el.tags.amenity == "stripclub") {
-				setPoiMarker("Strip Club", strip_icon, el.lat, el.lon, el.tags, el.id, el.type);
-			} else if(el.tags.shop == "erotic" || el.tags.shop == "adult") {
-				setPoiMarker("Sex shop", shop_icon, el.lat, el.lon, el.tags, el.id, el.type);
-			} else if(el.tags.amenity == "brothel") {
-				setPoiMarker("Brothel", brothel_icon, el.lat, el.lon, el.tags, el.id, el.type);
-			} else if(el.tags.amenity == "register_office" || el.tags.office == "register") {
-				setPoiMarker("Register Office", register_icon, el.lat, el.lon, el.tags, el.id, el.type);
-			}
+            if(el.tags.amenity == "cafe") {
+              setPoiMarker("Cafe", cafe_icon, el.lat, el.lon, el.tags, el.id, el.type);
+            } else if(el.tags.amenity == "fast_food") {
+              setPoiMarker("Fast_Food", fastfood_icon, el.lat, el.lon, el.tags, el.id, el.type);
+            } else if(el.tags.amenity == "restaurant") {
+              setPoiMarker("Restaurant", restaurant_icon, el.lat, el.lon, el.tags, el.id, el.type);
+            } else if(el.tags.shop == "supermarket") {
+              setPoiMarker("Supermarket", supermarket_icon, el.lat, el.lon, el.tags, el.id, el.type);
+            }
 		}
 	});
 }
@@ -95,7 +93,7 @@ function get_op_elements() {
 	$.ajax({
 		url: "http://overpass-api.de/api/interpreter",
 		data: {
-			"data": '[out:json][timeout:25];(node["vending"="condoms"]('+bbox+');way["vending"="condoms"]('+bbox+');relation["vending"="condoms"]('+bbox+');node["amenity"="brothel"]('+bbox+');way["amenity"="brothel"]('+bbox+');relation["amenity"="brothel"]('+bbox+');node["amenity"="stripclub"]('+bbox+');way["amenity"="stripclub"]('+bbox+');relation["amenity"="stripclub"]('+bbox+');node["shop"="erotic"]('+bbox+');way["shop"="erotic"]('+bbox+');relation["shop"="erotic"]('+bbox+');node["shop"="adult"]('+bbox+');way["shop"="adult"]('+bbox+');relation["shop"="adult"]('+bbox+');node["office"="register"]('+bbox+');way["office"="register"]('+bbox+');relation["office"="register"]('+bbox+');node["amenity"="register_office"]('+bbox+');way["amenity"="register_office"]('+bbox+');relation["amenity"="register_office"]('+bbox+');node["shop"="sex"]('+bbox+');way["shop"="sex"]('+bbox+');relation["shop"="sex"]('+bbox+'););out body center;'
+			"data": '[out:json][timeout:25];(node["diet:vegan"="yes"]('+bbox+');way["diet:vegan"="yes"]('+bbox+');node["diet:vegan"="only"]('+bbox+');way["diet:vegan"="only"]('+bbox+'););out body center;' 
 		},
 		success: element_to_map
 	});
@@ -110,28 +108,28 @@ function go_to_current_pos() {
 
 
 $(function() {
-	kondom_icon = L.icon({
+	cafe_icon = L.icon({
 		iconUrl: '/static/img/kondom.png',
 		iconSize: [30, 30],
 		iconAnchor: [15, 15],
 		popupAnchor: [0, -15]
 	});
 
-	strip_icon = L.icon({
+	fastfood_icon = L.icon({
 		iconUrl: '/static/img/stripclub2.png',
 		iconSize: [30, 30],
 		iconAnchor: [15, 15],
 		popupAnchor: [0, -15]
 	});
 
-	shop_icon = L.icon({
+	restaurant_icon = L.icon({
 		iconUrl: '/static/img/shop.png',
 		iconSize: [30, 30],
 		iconAnchor: [15, 15],
 		popupAnchor: [0, -15]
 	});
 
-	brothel_icon = L.icon({
+	supermarket_icon = L.icon({
 		iconUrl: '/static/img/brothel.png',
 		iconSize: [30, 30],
 		iconAnchor: [15, 15],
@@ -161,8 +159,8 @@ $(function() {
 
 	if(L.Browser.retina) var tp = "lr";
 	else var tp = "ls";
-	L.tileLayer('http://tiles.lyrk.org/'+tp+'/{z}/{x}/{y}?apikey=299723017f344e81866878c8f2fb0678', {
-		attribution: 'powered by <a href="https://geodienste.lyrk.de">Lyrk Geodienste</a>, <a href="http://geodienste.lyrk.de/copyright">Lizenzinformationen</a>',
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
 		maxZoom: 18
 	}).addTo(map);
 

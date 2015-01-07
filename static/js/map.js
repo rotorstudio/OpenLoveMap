@@ -20,15 +20,15 @@ function geocode() {
 			"lang": navigator.language
 		}, function(data) {
 			var current_bounds = map.getBounds();
-			var autocomplete_content = "<li>";
+			var autocomplete_content = "<ul>";
 
 			$.each(data.features, function(number, feature) {
 				var latlng = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
 
-				autocomplete_content += "<ul onclick='jumpto(" + latlng[0] + ", " + latlng[1] + ")'>" + feature.properties.name + ", " + feature.properties.country + "</ul>";
+				autocomplete_content += "<li onclick='jumpto(" + latlng[0] + ", " + latlng[1] + ")'>" + feature.properties.name + ", " + feature.properties.country + "</li>";
 			});
 
-			$("#autocomplete").html(autocomplete_content+"</li>");
+			$("#autocomplete").html(autocomplete_content+"</ul>");
 			$("#autocomplete").show();
 		});
 	}
@@ -173,6 +173,8 @@ $(function() {
 
 	// poi reload on map move
 	map.on('moveend', get_op_elements);
+
+    map.on('click', function(){$('#autocomplete').hide()});
 
 	// initial poi load
 	get_op_elements();

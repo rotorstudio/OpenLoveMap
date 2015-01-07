@@ -11,80 +11,12 @@
     width: 100%;
 }
 
-button {
-	border-radius: 5px;
-	text-shadow:none;
-	background-color: rgba(255, 255, 255, 1);
-	border: 1px solid #7DA6C9;
-	color:#1968A6;
-}
-
-#searchform {
-    z-index: 3;
-    position: absolute;
-    padding: 10px;
-    width: 260px;
-    border-bottom-right-radius: 5px;
+nav .brand-logo {
+    padding-left: 10px;
 }
 
 .search-field input {
     margin: 0;
-}
-
-#topbar {
-	z-index: 2;
-	position: absolute;
-	width:100%;
-	background-color: rgba(34, 34, 34, 1);
-}
-
-#topbar #logo {
-	height:100%;
-	position: absolute;
-	display: inline-block;
-	/*background-color: rgba(25, 104, 166, 1);*/
-}
-
-#topbar #logo img {
-	height: 3rem;
-	margin-top:0.75rem;
-	padding-left:0.5rem;
-	padding-right:0.5rem;
-}
-
-#topbar #searchgroup {
-	margin:0.7rem 0 0.7rem 0;
-	height:3rem;
-	width:100%;
-	vertical-align: top;
-	display: inline-block;
-}
-
-#topbar #searchgroup input {
-	font-size:1.5rem;
-	width: 20rem;
-	border: 1px solid #2eb800;
-	padding: 0 0.5rem 0 0.5rem;
-	border-radius:5px;
-	height:3rem;
-	display: inline-block;
-	left:13rem;
-	position: absolute;
-}
-
-#topbar #searchgroup button {
-	border: 1px solid #2eb800;
-	height:50px;
-	width:3rem;
-	margin-left:0.2rem;
-	display: inline-block;
-	position: absolute;
-	left:34.2rem;
-}
-
-#topbar #searchgroup button img {
-	width:70%;
-	margin-top:4px;
 }
 
 #bigmap {
@@ -110,6 +42,7 @@ button {
 	line-height: 1.8rem;
 	display: none;
     z-index: 1000;
+    color: #000;
 }
 
 #autocomplete li {
@@ -123,13 +56,6 @@ button {
 
 .leaflet-popup-content-wrapper {
 	border-radius: 0;
-}
-
-#slogan {
-	position: absolute;
-	left:39em;
-	top:1.6em;
-	font-style: italic;
 }
 
 .more_on_osm {

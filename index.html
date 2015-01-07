@@ -7,13 +7,12 @@
 		<link rel="stylesheet" href="/static/css/materialize.min.css" />
 		<link rel="stylesheet" href="/static/css/leaflet.css" />
 		<link rel="stylesheet" href="/static/css/main.css" />
-		<link rel="stylesheet" href="/static/css/mobile.css" media="screen and (max-width: 600px)" />
 		<title>OpenVeganFoodMap</title>
 	</head>
 	<body>
         <nav>
             <div class="nav-wrapper light-green">
-                <a href="#" class="brand-logo col s4">OpenVeganFoodMap</a>
+                <a href="#" class="brand-logo">OpenVeganFoodMap</a>
                 <ul id="nav-mobile" class="right side-nav">
                     <li class="input-field">
                         <input id="search" type="text" required>
@@ -21,18 +20,14 @@
                         <div id="autocomplete"></div>
                     </li>
                     <li><a href="#" onClick="go_to_current_pos()"><i class="mdi-maps-place"></i></a></li>
-                    <li><a class="waves-effect waves-light modal-trigger" href="#modal"><i class="mdi-action-help"></i></a></li>
-                    
+                    <li><a href="modal" class="waves-effect waves-light modal-trigger"><i class="mdi-action-help"></i></a></li>
                 </ul>
                <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a> 
             </div>
         </nav>
-
         <div id="content">
-
             <div id="bigmap">
             </div>
-
         </div>
 
         <div id="modal" class="modal">
@@ -40,13 +35,11 @@
             <p>A bunch of text</p>
             <a href="#" class="waves-effect btn-flat modal-close">Close</a>
         </div>
+
 		<script src="/static/js/leaflet.js"></script>
 		<script src="/static/js/leaflet-hash.js"></script>
 		<script src="/static/js/jquery-1.11.2.min.js"></script>
 		<script src="/static/js/materialize.min.js"></script>
 		<script src="/static/js/map.js"></script>
-
-        
-        
 	</body>
 </html>

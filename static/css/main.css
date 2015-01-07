@@ -66,3 +66,7 @@ nav .brand-logo {
 	text-decoration: none;
 	color: #CD59F7;
 }
+
+.modal p {
+    padding-bottom: 10px;
+}

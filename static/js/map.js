@@ -1,6 +1,6 @@
 'use strict';
 var map, saved_lat, saved_lon, bbox;
-var cafe_icon, fastfood_icon, restaurant_icon, supermarket_icon, register_icon;
+var cafe_icon, fastfood_icon, restaurant_icon, supermarket_icon, pub_icon;
 var poi_markers = new Array();
 
 function jumpto(lat, lon) {
@@ -71,7 +71,7 @@ function element_to_map(data) {
             } else if(el.tags.amenity == "fast_food") {
               setPoiMarker("Fast_Food", fastfood_icon, el.lat, el.lon, el.tags, el.id, el.type);
             } else if(el.tags.amenity == "pub") {
-              setPoiMarker("Pub", fastfood_icon, el.lat, el.lon, el.tags, el.id, el.type);
+              setPoiMarker("Pub", pub_icon, el.lat, el.lon, el.tags, el.id, el.type);
             } else if(el.tags.amenity == "restaurant") {
               setPoiMarker("Restaurant", restaurant_icon, el.lat, el.lon, el.tags, el.id, el.type);
             } else if(el.tags.shop == "supermarket") {
@@ -111,35 +111,35 @@ function go_to_current_pos() {
 
 $(function() {
 	cafe_icon = L.icon({
-		iconUrl: '/static/img/kondom.png',
+		iconUrl: '/static/img/cafe.png',
 		iconSize: [30, 30],
 		iconAnchor: [15, 15],
 		popupAnchor: [0, -15]
 	});
 
 	fastfood_icon = L.icon({
-		iconUrl: '/static/img/stripclub2.png',
+		iconUrl: '/static/img/fastfood.png',
 		iconSize: [30, 30],
 		iconAnchor: [15, 15],
 		popupAnchor: [0, -15]
 	});
 
 	restaurant_icon = L.icon({
-		iconUrl: '/static/img/shop.png',
+		iconUrl: '/static/img/restaurant.png',
 		iconSize: [30, 30],
 		iconAnchor: [15, 15],
 		popupAnchor: [0, -15]
 	});
 
 	supermarket_icon = L.icon({
-		iconUrl: '/static/img/brothel.png',
+		iconUrl: '/static/img/supermarket.png',
 		iconSize: [30, 30],
 		iconAnchor: [15, 15],
 		popupAnchor: [0, -15]
 	});
 
-	register_icon = L.icon({
-		iconUrl: '/static/img/register.png',
+	pub_icon = L.icon({
+		iconUrl: '/static/img/pub.png',
 		iconSize: [30, 30],
 		iconAnchor: [15, 15],
 		popupAnchor: [0, -15]

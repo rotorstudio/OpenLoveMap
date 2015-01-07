@@ -18,6 +18,7 @@
                     <li class="input-field">
                         <input id="search" type="text" required>
                         <label for="search"><i class="mdi-action-search"></i></label>
+                        <div id="autocomplete"></div>
                     </li>
                     <li><a href="#" onClick="go_to_current_pos()"><i class="mdi-maps-place"></i></a></li>
                     <li><a class="waves-effect waves-light modal-trigger" href="#modal"><i class="mdi-action-help"></i></a></li>
@@ -34,6 +35,11 @@
 
         </div>
 
+        <div id="modal" class="modal">
+            <h4>About</h4>
+            <p>A bunch of text</p>
+            <a href="#" class="waves-effect btn-flat modal-close">Close</a>
+        </div>
 		<script src="/static/js/leaflet.js"></script>
 		<script src="/static/js/leaflet-hash.js"></script>
 		<script src="/static/js/jquery-1.11.2.min.js"></script>
@@ -41,11 +47,6 @@
 		<script src="/static/js/map.js"></script>
 
         
-        <div id="autocomplete"></div>
-        <div id="modal" class="modal">
-            <h4>About</h4>
-            <p>A bunch of text</p>
-            <a href="#" class="waves-effect btn-flat modal-close">Close</a>
-        </div>
+        
 	</body>
 </html>

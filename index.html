@@ -2,30 +2,50 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width initial-scale=1.0">
 		<link rel="stylesheet" href="/static/css/normalize.css" />
+		<link rel="stylesheet" href="/static/css/materialize.min.css" />
 		<link rel="stylesheet" href="/static/css/leaflet.css" />
 		<link rel="stylesheet" href="/static/css/main.css" />
 		<link rel="stylesheet" href="/static/css/mobile.css" media="screen and (max-width: 600px)" />
 		<title>OpenVeganFoodMap</title>
 	</head>
 	<body>
-		<div id="topbar">
-			<span id="logo"><img src="/static/img/ovfm.png" alt="OpenVeganFoodMap" /></span>
-			<div id="searchgroup">
-				<input type="text" placeholder="Stadt" id="searchfield">
-				<button onClick="go_to_current_pos();"><img src="/static/img/orten.png"></button>
-				<div id="autocomplete"></div>
-			</div>
-			<span id="slogan">Find Vegan Food</span>
-		</div>
+        <nav>
+            <div class="nav-wrapper light-green">
+                <a href="#" class="brand-logo col s4">OpenVeganFoodMap</a>
+                <ul id="nav-mobile" class="right side-nav">
+                    <li class="input-field">
+                        <input id="search" type="text" required>
+                        <label for="search"><i class="mdi-action-search"></i></label>
+                    </li>
+                    <li><a href="#" onClick="go_to_current_pos()"><i class="mdi-maps-place"></i></a></li>
+                    <li><a class="waves-effect waves-light modal-trigger" href="#modal"><i class="mdi-action-help"></i></a></li>
+                    
+                </ul>
+               <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a> 
+            </div>
+        </nav>
 
-		<div id="bigmap">
-		</div>
+        <div id="content">
+
+            <div id="bigmap">
+            </div>
+
+        </div>
 
 		<script src="/static/js/leaflet.js"></script>
 		<script src="/static/js/leaflet-hash.js"></script>
 		<script src="/static/js/jquery-1.11.2.min.js"></script>
+		<script src="/static/js/materialize.min.js"></script>
 		<script src="/static/js/map.js"></script>
+
+        
+        <div id="autocomplete"></div>
+        <div id="modal" class="modal">
+            <h4>About</h4>
+            <p>A bunch of text</p>
+            <a href="#" class="waves-effect btn-flat modal-close">Close</a>
+        </div>
 	</body>
 </html>

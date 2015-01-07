@@ -9,7 +9,7 @@ function jumpto(lat, lon) {
 }
 
 function geocode() {
-	var searchword = $("#searchfield").val();
+	var searchword = $("#search").val();
 
 	if(searchword.length > 3) {
 		$.getJSON("http://photon.komoot.de/api/", {
@@ -70,6 +70,8 @@ function element_to_map(data) {
               setPoiMarker("Cafe", cafe_icon, el.lat, el.lon, el.tags, el.id, el.type);
             } else if(el.tags.amenity == "fast_food") {
               setPoiMarker("Fast_Food", fastfood_icon, el.lat, el.lon, el.tags, el.id, el.type);
+            } else if(el.tags.amenity == "pub") {
+              setPoiMarker("Pub", fastfood_icon, el.lat, el.lon, el.tags, el.id, el.type);
             } else if(el.tags.amenity == "restaurant") {
               setPoiMarker("Restaurant", restaurant_icon, el.lat, el.lon, el.tags, el.id, el.type);
             } else if(el.tags.shop == "supermarket") {
@@ -165,7 +167,7 @@ $(function() {
 	}).addTo(map);
 
 	// init search
-	$("#searchfield").keyup(function() {
+	$("#search").keyup(function() {
 		geocode();
 	});
 
@@ -174,4 +176,7 @@ $(function() {
 
 	// initial poi load
 	get_op_elements();
+
+    $(".button-collapse").sideNav();
+    $(".modal-trigger").leanModal();
 });

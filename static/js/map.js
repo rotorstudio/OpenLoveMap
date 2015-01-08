@@ -154,7 +154,7 @@ $(function() {
 	if(saved_lat != undefined) {
 		map.setView([saved_lat, saved_lon], 13)
 	} else {
-		map.setView([51.0474, 13.7384], 13);
+		map.setView([51.4980, 7.4620], 13);
 	}
 
 	var hash = new L.Hash(map);
